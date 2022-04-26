@@ -353,7 +353,7 @@ footer .container{
 
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1201px){
     #caracteristicas {
         background-position: calc(100vw - 800px);
     }
