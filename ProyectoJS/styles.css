@@ -1,0 +1,361 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'roboto', sans-serif;
+    margin: 0;
+    background-color: rgb(245,245,245);
+}
+
+h1{ font-size: 3.5em;}
+h2{ font-size: 2.7em;}
+h3{ font-size: 2em;}
+p{ font-size: 1.25em;}
+ul{ list-style: none;}
+li{ font-size: 1.25em;}
+
+button{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: white;
+    background-color: blueviolet;
+}
+
+button:hover{
+    background-color: rgb(89, 27, 146);
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* ------ HEADER ------ */
+
+header{
+    background-color: rgb(245,245,245);
+    border-bottom: black 2px solid;
+} 
+
+header .logo{
+    margin: 0;
+    padding: 25px 30px;
+    font-weight: bold;
+    color: rgb(133, 133, 226);
+    font-size: 1.8em;
+
+}
+
+header .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+header a:hover{
+    color: blueviolet;
+}
+
+/* ------ HERO ------ */
+
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("recursos/4BBDYJQLSFAXDNI6RNZW2VCGIU.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#hero h1{
+    color: white;
+}
+
+#hero button{
+    font-size: 1.75em;    
+}
+
+/* ------ SOMOS STEAM ------ */
+
+.colorSTEAMYA{
+    color: blueviolet;
+}
+
+#somosSteam .container{
+    text-align: center;
+    height: 70vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/* ------ NUESTROS JUEGOS ------ */
+
+#nuestrosJuegos{
+    background-color: rgb(75, 69, 69);
+    color: white;
+    text-align: center;
+    height: 70vh;
+}
+#nuestrosJuegos .container{
+    padding: 100px 12px;
+}
+
+#nuestrosJuegos h2{
+    margin-top: 0;
+    font-size: 3.2em;
+}
+
+#nuestrosJuegos p{
+    display: none;
+}
+
+#nuestrosJuegos .carta{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.carta:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("recursos/Hitman-emblem.jpg");
+
+}
+
+.carta:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("recursos/forza-logo.webp");
+
+}
+
+.carta:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("recursos/VFIVE.png");
+}
+
+/* ------ CARASTERISTICAS ------ */
+
+#caracteristicas .container{
+    
+    padding: 100px 12px;
+    height: 70vh;
+    display: flex;
+    text-align: initial;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+#caracteristicas li{
+    margin: 15px 0px;
+    font-weight: bold;
+}
+
+/* ------ APLICA YA ------ */
+ 
+#aplicaYa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url("recursos/gamerfinal.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 70vh;
+}
+
+#aplicaYA h2{
+    font-size: 9vw;
+}
+
+#aplicaYA button{
+    font-size: 5vw;
+}
+
+/* ------ FOOTER ------ */
+
+footer{
+    background-color: rgb(230,230,230);
+}
+
+footer p{
+    margin: 0;
+    pad: 12px;
+    color: rgb(100,100,100);
+}
+
+footer .container{
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* ------ MEDIA QUERY ------ */
+
+@media (min-width: 720px){
+    header{
+        position: fixed;
+        width: 100%;
+    }
+    
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header nav{
+        flex-direction: row;
+        padding: 0;
+        padding-right: 15px;
+    }
+
+    #hero h1{
+        color: white;
+        font-size: 5em;
+    }
+
+    #somosSteam .container{    
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    } 
+
+    #somosSteam .textSteam{
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        max-width: 500px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #somosSteam h2{
+        margin-top: 0px;
+    }
+
+    #somosSteam .imgSteam{
+        background-image: url(recursos/gamegame2.webp);
+        background-size: cover;
+        background-position: center center;
+
+        width: 80vh; 
+        height: 50vh; 
+    }
+
+    #nuestrosJuegos .carta{
+        padding: 50px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        height: 40vh;
+/*         border: 1px solid red; */
+    }
+
+    #nuestrosJuegos .juegos{
+        display: flex;
+        justify-content: center;
+    }
+
+    #nuestrosJuegos p{
+        display: block;
+        margin-bottom: 30px;
+    }
+    
+    #nuestrosJuegos h2{
+        font-size: 4em;
+    }
+
+    #nuestrosJuegos h3{
+        margin-top: 0px;
+    }
+
+
+/*     #caracteristicas{
+        background-image: url("recursos/all-ps4-games-with-cross-console-play-compatibility.webp.crdownload");
+        background-repeat: no-repeat;
+        background-size: 500px 400px;
+        background-position: calc(100vw - 600px) 300px;
+        display: flex;
+        align-items: center;  
+        justify-content: center;  
+    } */
+    
+    #caracteristicas .container{
+    text-align: initial;
+
+    }
+
+    #caracteristicas ul{
+        margin-left: 100px;
+    }
+
+
+}
+
+@media (min-width: 1200px){
+    #caracteristicas {
+        background-position: calc(100vw - 800px);
+    }
+}
+
