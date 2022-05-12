@@ -102,7 +102,7 @@ header .logo{
     align-items: center;
 }
 
-#juegos .carta1, .carta2, .carta3 {
+#juegos .carta{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

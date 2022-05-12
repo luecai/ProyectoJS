@@ -7,13 +7,13 @@ class ProductoJuegos{
   this.tipo = tipo;
   }
 
-  obtenerJuegos () {
+/*   obtenerJuegos () {
     return `Juego: ${this.nombre}, Precio:${this.precio}`
   }
-
+ */
 }
 
-class ProductoProgramas{
+/* class ProductoProgramas{
   constructor (id, nombre, precio, tipo){
   this.id = id;
   this.nombre = nombre;
@@ -25,13 +25,20 @@ class ProductoProgramas{
     return `Juego: ${this.nombre}, Precio:${this.precio}`
   }
 
-}
+} */
+
+
 
 // Creo las Array
 
 const arrayJuegos = [];
+const contenedor = document.getElementById("productos");
+const tablaCarrito = document.getElementById("tablaCarrito");
+const carrito = [];
 
-const arrayProgramas = [];
+/* const arrayProgramas = []; */
+
+
 
 // Creo las funciones para pushear 
 
@@ -39,9 +46,11 @@ function nuevoProductoJuegos(id, nombre, precio, tipo) {
   arrayJuegos.push(new ProductoJuegos(id, nombre, precio, tipo));
 }
 
-function nuevoProductoProgramas(id, nombre, precio, tipo) {
+/* function nuevoProductoProgramas(id, nombre, precio, tipo) {
   arrayProgramas.push(new ProductoProgramas(id, nombre, precio, tipo));
 }
+ */
+
 
 
 nuevoProductoJuegos(1, "CS GO ", 600, "Shooter");
@@ -55,10 +64,13 @@ nuevoProductoJuegos(8, "FORZA", 1200, "Deporte");
 nuevoProductoJuegos(9, "NBA", 2800, "Deporte");
 nuevoProductoJuegos(10, "GTA", 2500, "Mundo Abierto");
 
-nuevoProductoProgramas(1, "PHOTOSHOP ", 600, "Shooter");
+/* nuevoProductoProgramas(1, "PHOTOSHOP ", 600, "Shooter");
 nuevoProductoProgramas(2, "COREL", 1500, "Deporte");
 nuevoProductoProgramas(3, "AUTOCAD", 1200, "Carrera");
 nuevoProductoProgramas(4, "SONY VEGAS", 3800, "Mundo Abierto");
+ */
+
+
 
 // Creo los for para recorrer las array
 
@@ -77,9 +89,11 @@ const listadoProgramas = () => {
 
 // Alert y Console.Log
   
-alert("Bienvenidos a SteamYA!");
+/* alert("Bienvenidos a SteamYA!");
+ */
 
-let busqueda = prompt ("Que estas buscando juegos o programas ?");
+
+/* let busqueda = prompt ("Que estas buscando juegos o programas ?");
 
 while(busqueda.toUpperCase() !== "JUEGOS" && busqueda.toUpperCase() !== "PROGRAMAS"){
   busqueda = prompt("Por favor ingrese juegos o programas");
@@ -93,4 +107,62 @@ while(busqueda.toUpperCase() !== "JUEGOS" && busqueda.toUpperCase() !== "PROGRAM
     listadoProgramas();
   }else {
     alert ("Error no encontramos nada :(")
-  };
+  }; */
+
+
+const getCarta = (item) => {
+
+return (
+    `
+    <div><h3>${item.name}</h3></div>
+    <br>
+    <h5> Precio: ${item.precio}
+    <div> <button onclick=agregarCarrito(${item.id}) ${!item.stock ? 'disabled' : '' } >Agregar al carrito </button> </div>
+    `
+)
+}
+
+const getRow = (item) => {
+
+return (
+    `
+    <th scope="row">${item.id}</th>
+    <td>${item.nombre}</td>
+    <td>${item.cantidad}</td>
+    <td>$${item.precio * item.cantidad} ($${item.precio})</td>
+    `
+)
+}
+
+// función flecha
+const cargarProductos = (datos, nodo, esTabla) => {
+    let acumulador = "";
+    datos.forEach((el) => {
+        acumulador += esTabla ? getRow(el) : getCarta(el);
+    })
+    nodo.innerHTML = acumulador;
+};
+
+const agregarCarrito = (id) => {
+    const seleccion = arrayJuegos.find(item => item.id === id);
+    const busqueda = carrito.findIndex(el => el.id === id);
+    
+    if (busqueda === -1) {
+        carrito.push({
+            id: seleccion.id,
+            nombre: seleccion.nombre,
+            precio: seleccion.precio,
+            cantidad: 1,
+            imagen: seleccion.imagen,
+        })
+    } else {
+        carrito[busqueda].cantidad = carrito[busqueda].cantidad + 1
+    }
+    
+    cargarProductos(carrito, tablaCarrito, true);
+}
+
+cargarProductos(arrayJuegos, contenedor, false);
+tablaCarrito
+
+console.log(arrayJuegos);
