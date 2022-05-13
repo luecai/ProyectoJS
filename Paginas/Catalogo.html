@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo</title>
     <link rel="stylesheet" href="../Styles/Catalogo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,50 +21,19 @@
     </header>
 
     <section id="juegos">
-        <div class="container">
+        <div class="containerJuegos">
             <h1>Catalogo</h1>
-            <div class="juegos">
-                <!-- <div class="carta1">
-                    <div><h3>FIFA</h3></div>
-                    <button>Comprar</button>
-                </div>
-                <br>
-                <div class="carta2">
-                    <div><h3>MAFIA 2</h3></div>
-                    <br>
-                    <button>Comprar</button>
-                </div>
-                <br>
-                <div class="carta3">
-                    <div><h3>KANE AND LYNCH</h3></div>
-                    <br>
-                    <div><button>Comprar</button></div>
-                </div>
-                <div class="carta4">
-                    <h3>CITY SKYLINES</h3>
-                    <br>
-                    <button>Comprar</button>
-                </div>
-                <div class="carta5">
-                    <h3>CS GO</h3>
-                    <br>
-                    <button>Comprar</button>
-                </div> -->
-                <div class="carta">
-                    <h1>Lucas</h1>
-                </div>
-
-                <br>
-            </div>
-
-            <div class="carritodiv">
-                <button type="button" class="buttonCarrito" >
-                CARRITO
-                </button>
-            </div>
-
-
+            <div id="productos" class="d-flex row flex-wrap"></div>
         </div>
+
+        <div class="carritodiv">
+            <button type="button" class="buttonCarrito" >
+            CARRITO
+            </button>
+        </div>
+
+
+        
     </section>
     
 
@@ -74,7 +44,7 @@
             <p>&copy; SteamYA!</p>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../JS/catalogo.js"></script>
 
 </body>
