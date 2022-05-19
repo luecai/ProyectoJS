@@ -1,4 +1,8 @@
+// Creo las CONST
 const contenedor = document.getElementById("productos");
+const tablaCarrito = document.getElementById("tablaCarrito");
+
+
 
 
 // Creo las Class de Juegos
@@ -19,6 +23,7 @@ class ProductoJuegos{
 
 // Creo las Array
 
+const carrito = [];
 const PRODUCTOS = [];
 
 
@@ -31,7 +36,6 @@ function nuevoProductoJuegos(id, nombre, precio, tipo, stock, imagen) {
 nuevoProductoJuegos(1, "CS GO ", 600, "Shooter", 10, "https://estnn.com/wp-content/uploads/2018/08/Counter-Strike-GO-1200x720.png");
 nuevoProductoJuegos(2, "FIFA", 1500, "Deporte", 5, "https://image.api.playstation.com/vulcan/img/rnd/202111/0822/zDXM9K2cQiq0vKTDwF0TkAor.png");
 nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
-nuevoProductoJuegos(4, "GTA V", 1200, "Mundo Abierto", 3, "https://static.wikia.nocookie.net/esgta/images/c/c1/GTA_V_logo.png/revision/latest?cb=20130906185925");
 
 
 
@@ -50,19 +54,47 @@ const getCarta = (item) => {
   `)
 };
 
+const getRow = (item) => {
+  return (        
+  `
+  <tr>
+      <th scope="row">${item.id}</th>
+      <td>${item.nombre}</td>
+      <td>${item.cantidad}</td>
+      <td>$${item.precio * item.cantidad} ($${item.precio})</td>
+  </tr>
+  `
+  )
+}
 
-const cargarProductos = (datos, nodo) => {
+
+const cargarProductos = (datos, nodo, esTabla) => {
   let acumulador = "";
   datos.forEach((el) => {
-    acumulador += getCarta(el);
+    acumulador += esTabla ?  getRow(el) : getCarta(el);
   })
   nodo.innerHTML = acumulador;
 };
 
 const agregarCarrito = (id) => {
   const seleccion = PRODUCTOS.find(item => item.id === id);
-  alert("Agregaste " + seleccion.nombre)
+  const busqueda = carrito.findIndex(el => el.id === id);
+
+  if (busqueda === -1) {
+   carrito.push({
+     id: seleccion.id,
+     nombre: seleccion.nombre,
+     precio: seleccion.precio,
+     cantidad: 1,
+   })
+  } else {
+    carrito[busqueda].cantidad = carrito[busqueda].cantidad +1; 
+  }
+    cargarProductos(carrito, tablaCarrito, true);
 
 }
 
-cargarProductos (PRODUCTOS, contenedor);
+cargarProductos (PRODUCTOS, contenedor, false);
+
+
+

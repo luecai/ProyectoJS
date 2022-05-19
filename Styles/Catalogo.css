@@ -102,6 +102,9 @@ header .logo{
     align-items: center;
 }
 
+#juegos h1{
+    color: white;
+}
 /* #juegos .carta{
     display: flex;
     flex-direction: column;
@@ -123,7 +126,13 @@ header .logo{
     margin-top: 3px;
 }
 
-
+#carrito {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
 
 
 /* ------ FOOTER ------ */

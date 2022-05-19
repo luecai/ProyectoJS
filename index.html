@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SteamYA!</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script>
 </head>
 <body>
-
+    
     <header>
         <div class="container">
             <p class="logo">Juegos SteamYA!</p>
@@ -20,23 +19,23 @@
             </nav>
         </div>
     </header>
-
+    
     <section id="hero">
         <h1>Juega lo que quieras, <br> donde quieras! </h1>
         <br>
         <br>
         <button>JUEGA YA!</button>
     </section>
-
+    
     <section id="somosSteam">
         <div class="container">
             <div class="imgSteam"></div>
             <div class="textSteam">
-            <h2>  Somos <span class="colorSTEAMYA">SteamYA!</span></h2>
-            <br>
-            <p>SteamYA es una compañia que rige en el mercado hace mas de 10 años con un amplio catalogo de juegos de todos los tipos. Contamos con las franquicias mas codiciadas del mercado a precios nunca antes vistos. Para ver nuestro catalogo haga click en el boton de abajo para redirigirlo!</p>
-            <button> <a href="./Paginas/Catalogo.html">Catalogo</a> </button>     
-        </div>
+                <h2>  Somos <span class="colorSTEAMYA">SteamYA!</span></h2>
+                <br>
+                <p>SteamYA es una compañia que rige en el mercado hace mas de 10 años con un amplio catalogo de juegos de todos los tipos. Contamos con las franquicias mas codiciadas del mercado a precios nunca antes vistos. Para ver nuestro catalogo haga click en el boton de abajo para redirigirlo!</p>
+                <button> <a href="./Paginas/Catalogo.html">Catalogo</a> </button>     
+            </div>
         </div>
     </section>
 
@@ -59,29 +58,36 @@
             </div>
         </div>
     </section>
-
+    
     <section id="caracteristicas">
         <div class="container">
-            <ul>
-                <li>✅ 100% online</li>
-                <li>✅ Amplio catalogo</li>
-                <li>✅ Descarga todos los que quieras!</li>
-                <li>✅ Puede jugarse Offline</li>
-            </ul>
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email User</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label" id="Password">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary" id="Subir">Subir</button>
+                <button type="submit" class="btn btn-primary" id="Limpiar">Limpiar</button>
+              </form>
         </div>
     </section>
-
+    
     <section id="aplicaYa">
         <h2>Listo para Jugar ?</h2>
         <br>
         <br>
         <button>Juega YA!</button>
     </section>
-
+    
     <footer>
         <div class="container">
             <p>&copy; SteamYA!</p>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
