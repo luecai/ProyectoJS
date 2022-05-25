@@ -5,6 +5,7 @@ const tablaCarrito = document.getElementById("tablaCarrito");
 
 
 
+
 // Creo las Class de Juegos
 class ProductoJuegos{
   constructor (id, nombre, precio, tipo, stock, imagen){
@@ -36,7 +37,7 @@ function nuevoProductoJuegos(id, nombre, precio, tipo, stock, imagen) {
 nuevoProductoJuegos(1, "CS GO ", 600, "Shooter", 10, "https://estnn.com/wp-content/uploads/2018/08/Counter-Strike-GO-1200x720.png");
 nuevoProductoJuegos(2, "FIFA", 1500, "Deporte", 5, "https://image.api.playstation.com/vulcan/img/rnd/202111/0822/zDXM9K2cQiq0vKTDwF0TkAor.png");
 nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
-
+nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
 
 
 
@@ -51,7 +52,8 @@ const getCarta = (item) => {
       <a href="#" onclick=agregarCarrito(${item.id}) class="btn btn-primary">AGREGAR AL CARRITO </a>
     </div>
   </div>
-  `)
+  `
+  )
 };
 
 const getRow = (item) => {
@@ -98,3 +100,16 @@ cargarProductos (PRODUCTOS, contenedor, false);
 
 
 
+const btn = document.getElementById("myBtn");
+
+
+
+btn.addEventListener('click', () => {
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'LISTO! Agregado al carrito.',
+    showConfirmButton: true,
+    timer: 1000
+  })
+});
