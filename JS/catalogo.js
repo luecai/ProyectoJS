@@ -1,7 +1,8 @@
 // Creo las CONST
 const contenedor = document.getElementById("productos");
 const tablaCarrito = document.getElementById("tablaCarrito");
-
+const btn = document.getElementById("myBtn");
+const contenedorProductos = document.getElementById('contenedor-productos')
 
 
 
@@ -30,17 +31,16 @@ const PRODUCTOS = [];
 
 // Creo las funciones para pushear 
 
-function nuevoProductoJuegos(id, nombre, precio, tipo, stock, imagen) {
+/* function nuevoProductoJuegos(id, nombre, precio, tipo, stock, imagen) {
   PRODUCTOS.push(new ProductoJuegos(id, nombre, precio, tipo, stock, imagen));
 }
 
 nuevoProductoJuegos(1, "CS GO ", 600, "Shooter", 10, "https://estnn.com/wp-content/uploads/2018/08/Counter-Strike-GO-1200x720.png");
 nuevoProductoJuegos(2, "FIFA", 1500, "Deporte", 5, "https://image.api.playstation.com/vulcan/img/rnd/202111/0822/zDXM9K2cQiq0vKTDwF0TkAor.png");
 nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
-nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
 
 
-
+ */
 const getCarta = (item) => {
   return (`
   <div class="card" style="width: 18rem;">
@@ -92,24 +92,50 @@ const agregarCarrito = (id) => {
   } else {
     carrito[busqueda].cantidad = carrito[busqueda].cantidad +1; 
   }
-    cargarProductos(carrito, tablaCarrito, true);
+    
+  
+  cargarProductos(carrito, tablaCarrito, true);
+    
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'LISTO! Agregado al carrito.',
+      showConfirmButton: false,
+      timer: 1000
+    })
 
 }
 
-cargarProductos (PRODUCTOS, contenedor, false);
 
 
+  async function getGames(){
+    const response = await fetch("./game.json")
+    const data = await response.json()
+    console.log(data);
 
-const btn = document.getElementById("myBtn");
+data.forEach((item) => {
+    const div = document.createElement('div')
+    div.classList.add('item')
+    div.innerHTML = `
+    <div class="card" style="width: 18rem;">
+      <img src="${item.imagen}" class="card-img-top" alt=" ${item.nombre}">
+      <div class="card-body">
+        <h5 class="card-title">${item.nombre}</h5>
+        <p class="card-text">Precio: ${item.precio}</p>
+        <p class="card-text">Stock: ${item.stock}</p>
+        <a href="#" onclick=agregarCarrito(${item.id}) class="btn btn-primary">AGREGAR AL CARRITO </a>
+      </div>
+    </div>
+    `
+    
+    contenedorProductos.appendChild(div)
 
+    
+    const boton = document.getElementById(`agregar${item.id}`)
+    
+  
 
+})
+};
 
-btn.addEventListener('click', () => {
-  Swal.fire({
-    position: 'top-end',
-    icon: 'success',
-    title: 'LISTO! Agregado al carrito.',
-    showConfirmButton: true,
-    timer: 1000
-  })
-});
+getGames();
