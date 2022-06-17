@@ -139,3 +139,6 @@ data.forEach((item) => {
 };
 
 getGames();
+
+
+/* lucas */
