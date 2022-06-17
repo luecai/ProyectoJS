@@ -181,6 +181,21 @@ header .logo{
     font-weight: bold;
 }
 
+#caracteristicas .mb-3{
+    display: flex;
+    margin: 5px 0px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#caracteristicas button{
+    margin: 15px 0px;
+    font-weight: bold;
+}
+
 /* ------ APLICA YA ------ */
  
 #aplicaYa{
@@ -375,4 +390,3 @@ footer .container{
         background-position: calc(100vw - 800px);
     }
 }
-

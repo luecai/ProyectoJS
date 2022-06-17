@@ -11,7 +11,7 @@
     
     <header>
         <div class="container">
-            <p class="logo">Juegos SteamYA!</p>
+            <p class="logo" id="barChange">SteamYA!</p>
             <nav>
                 <a href="#somosSteam">Catalogo</a>
                 <a href="#nuestrosJuegos">OFERTAS!</a>
@@ -22,22 +22,32 @@
     
     <section id="hero">
         <h1>Juega lo que quieras, <br> donde quieras! </h1>
+<!--         <br>
         <br>
-        <br>
-        <button>JUEGA YA!</button>
+        <button>JUEGA YA!</button> -->
     </section>
     
-    <section id="somosSteam">
+    <section id="caracteristicas">
         <div class="container">
-            <div class="imgSteam"></div>
-            <div class="textSteam">
-                <h2>  Somos <span class="colorSTEAMYA">SteamYA!</span></h2>
-                <br>
-                <p>SteamYA es una compañia que rige en el mercado hace mas de 10 años con un amplio catalogo de juegos de todos los tipos. Contamos con las franquicias mas codiciadas del mercado a precios nunca antes vistos. Para ver nuestro catalogo haga click en el boton de abajo para redirigirlo!</p>
-                <button> <a href="./Paginas/Catalogo.html">Catalogo</a> </button>     
-            </div>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text"  id="nombreUser">
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email User:</label>
+                  <input type="email"  id="exampleInputEmail1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label" id="Password">Password:</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary" id="Subir">Subir</button>
+                <button type="submit" class="btn btn-primary" id="Limpiar">Limpiar</button>
+              </form>
         </div>
     </section>
+    
 
     <section id="nuestrosJuegos">
         <div class="container">
@@ -59,23 +69,18 @@
         </div>
     </section>
     
-    <section id="caracteristicas">
+    
+    <section id="somosSteam">
         <div class="container">
-            <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email User</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label" id="Password">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary" id="Subir">Subir</button>
-                <button type="submit" class="btn btn-primary" id="Limpiar">Limpiar</button>
-              </form>
+            <div class="imgSteam"></div>
+            <div class="textSteam">
+                <h2>  Somos <span class="colorSTEAMYA">SteamYA!</span></h2>
+                <br>
+                <p>SteamYA es una compañia que rige en el mercado hace mas de 10 años con un amplio catalogo de juegos de todos los tipos. Contamos con las franquicias mas codiciadas del mercado a precios nunca antes vistos. Para ver nuestro catalogo haga click en el boton de abajo para redirigirlo!</p>
+                <button> <a href="./Paginas/Catalogo.html">Catalogo</a> </button>     
+            </div>
         </div>
     </section>
-    
     <section id="aplicaYa">
         <h2>Listo para Jugar ?</h2>
         <br>
@@ -90,7 +95,7 @@
     </footer>
 
 <!--     SCRIPT -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
