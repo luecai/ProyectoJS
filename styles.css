@@ -126,7 +126,7 @@ header .logo{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin: 20px;
+    margin: 30px;
 }
 
 #somosSteam button{
@@ -136,28 +136,6 @@ header .logo{
 #somosSteam a{
     color: white;
     text-decoration: none;
-}
-
-/* ------ NUESTROS JUEGOS ------ */
-
-#nuestrosJuegos{
-    background-color: rgb(75, 69, 69);
-    color: white;
-    text-align: center;
-    height: 70vh;
-}
-#nuestrosJuegos .container{
-    padding: 50px 12px;
-}
-
-#nuestrosJuegos h2{
-    margin-top: 0;
-    font-size: 3.2em;
-}
-
-#nuestrosJuegos p{
-    display: none;
-    max-height: 100px;
 }
 
 
@@ -173,14 +151,48 @@ header .logo{
     align-items: center;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 
 }
 
+  form{
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0,0,0,0.8) 0px 0px 50px;
+    border-radius: 10px;
+    color: blueviolet;
+  }
+  
+  input, textarea{
+    border: none;
+    resize: none;
+    outline: none;
+    padding: 15px 0px;
+    width: 80%;
+    margin: 20px;
+    transition: all 300ms;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+  
+  input:focus, textarea:focus{
+    border-bottom-color: #181818 ;
+  }
+  
 #caracteristicas li{
     margin: 15px 0px;
     font-weight: bold;
 }
 
+#caracteristicas .formulario{
+    display: flex;
+}
 #caracteristicas .mb-3{
     display: flex;
     margin: 5px 0px;
@@ -270,8 +282,11 @@ footer .container{
 
     #somosSteam .container{    
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
+        justify-content: space-evenly;
+        align-content: stretch;
+        flex-direction: row;
+        flex-wrap: nowrap;
     } 
 
     #somosSteam .textSteam{
@@ -293,7 +308,7 @@ footer .container{
         background-size: cover;
         background-position: center center;
 
-        width: 80vh; 
+        width: 100vh; 
         height: 50vh; 
     }
 

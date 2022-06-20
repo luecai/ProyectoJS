@@ -1,144 +1,144 @@
 // Creo las CONST
-const contenedor = document.getElementById("productos");
-const tablaCarrito = document.getElementById("tablaCarrito");
-const btn = document.getElementById("myBtn");
-const contenedorProductos = document.getElementById('contenedor-productos')
+const contenedorProductos = document.getElementById('contenedor-productos');
+const contenedorCarrito = document.getElementById('carrito-contenedor');
+const botonVaciar = document.getElementById('vaciar-carrito');
+const contadorCarrito = document.getElementById('contadorCarrito');
+const cantidad = document.getElementById('cantidad');
+const precioTotal = document.getElementById('precioTotal');
+const cantidadTotal = document.getElementById('cantidadTotal');
+const botonComprar = document.getElementById('comprarTotal');
 
+let carrito = [];
 
-
-
-// Creo las Class de Juegos
-class ProductoJuegos{
-  constructor (id, nombre, precio, tipo, stock, imagen){
-  this.id = id;
-  this.nombre = nombre;
-  this.precio = parseFloat(precio);
-  this.tipo = tipo;
-  this.stock = parseFloat(stock);
-  this.imagen = imagen;
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('carrito')) {
+      carrito = JSON.parse(localStorage.getItem('carrito'))
+      actualizarCarrito()
   }
+});
 
-}
+botonVaciar.addEventListener('click', () => {
+  Swal.fire({
+      title: 'Estas seguro?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI'
+  }).then((result) => {
+      if (result.isConfirmed) {
+          Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+          )
+      }
+  }),
 
+      carrito.length = 0
+  actualizarCarrito()
+});
 
-
-
-// Creo las Array
-
-const carrito = [];
-const PRODUCTOS = [];
-
-
-// Creo las funciones para pushear 
-
-/* function nuevoProductoJuegos(id, nombre, precio, tipo, stock, imagen) {
-  PRODUCTOS.push(new ProductoJuegos(id, nombre, precio, tipo, stock, imagen));
-}
-
-nuevoProductoJuegos(1, "CS GO ", 600, "Shooter", 10, "https://estnn.com/wp-content/uploads/2018/08/Counter-Strike-GO-1200x720.png");
-nuevoProductoJuegos(2, "FIFA", 1500, "Deporte", 5, "https://image.api.playstation.com/vulcan/img/rnd/202111/0822/zDXM9K2cQiq0vKTDwF0TkAor.png");
-nuevoProductoJuegos(3, "F1 22", 1200, "Carrera", 6, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU");
-
-
- */
-const getCarta = (item) => {
-  return (`
-  <div class="card" style="width: 18rem;">
-    <img src="${item.imagen}" class="card-img-top" alt=" ${item.nombre}">
-    <div class="card-body">
-      <h5 class="card-title">${item.nombre}</h5>
-      <p class="card-text">Precio: ${item.precio}</p>
-      <p class="card-text">Stock: ${item.stock}</p>
-      <a href="#" onclick=agregarCarrito(${item.id}) class="btn btn-primary">AGREGAR AL CARRITO </a>
-    </div>
-  </div>
-  `
-  )
-};
-
-const getRow = (item) => {
-  return (        
-  `
-  <tr>
-      <th scope="row">${item.id}</th>
-      <td>${item.nombre}</td>
-      <td>${item.cantidad}</td>
-      <td>$${item.precio * item.cantidad} ($${item.precio})</td>
-  </tr>
-  `
-  )
-}
-
-
-const cargarProductos = (datos, nodo, esTabla) => {
-  let acumulador = "";
-  datos.forEach((el) => {
-    acumulador += esTabla ?  getRow(el) : getCarta(el);
-  })
-  nodo.innerHTML = acumulador;
-};
-
-const agregarCarrito = (id) => {
-  const seleccion = PRODUCTOS.find(item => item.id === id);
-  const busqueda = carrito.findIndex(el => el.id === id);
-
-  if (busqueda === -1) {
-   carrito.push({
-     id: seleccion.id,
-     nombre: seleccion.nombre,
-     precio: seleccion.precio,
-     cantidad: 1,
-   })
-  } else {
-    carrito[busqueda].cantidad = carrito[busqueda].cantidad +1; 
-  }
-    
-  
-  cargarProductos(carrito, tablaCarrito, true);
-    
-    Swal.fire({
-      position: 'top-end',
+botonComprar.addEventListener(`click`, () => {
+  Swal.fire({
+      position: 'center',
       icon: 'success',
-      title: 'LISTO! Agregado al carrito.',
+      title: 'Compra realizada ',
       showConfirmButton: false,
-      timer: 1000
-    })
-
-}
-
-
-
-  async function getGames(){
-    const response = await fetch("./game.json")
-    const data = await response.json()
-    console.log(data);
-
-data.forEach((item) => {
-    const div = document.createElement('div')
-    div.classList.add('item')
-    div.innerHTML = `
-    <div class="card" style="width: 18rem;">
-      <img src="${item.imagen}" class="card-img-top" alt=" ${item.nombre}">
-      <div class="card-body">
-        <h5 class="card-title">${item.nombre}</h5>
-        <p class="card-text">Precio: ${item.precio}</p>
-        <p class="card-text">Stock: ${item.stock}</p>
-        <a href="#" onclick=agregarCarrito(${item.id}) class="btn btn-primary">AGREGAR AL CARRITO </a>
-      </div>
-    </div>
-    `
-    
-    contenedorProductos.appendChild(div)
-
-    
-    const boton = document.getElementById(`agregar${item.id}`)
-    
-  
+      timer: 1500
+  })
+  carrito = []
+  eliminarDelCarrito()
 
 })
+
+// ASYNC - AWAIT - FETCH
+async function getGames() {
+  const response = await fetch("../JSON/game.json")
+  const data = await response.json()
+  console.log(data);
+
+  data.forEach((producto) => {
+      const div = document.createElement('div')
+      div.classList.add('producto')
+      div.innerHTML = `
+    <div class="card" style="width: 18rem;">
+    <img src="${producto.imagen}" class="card-img-top" alt=" ${producto.nombre}" style="height: 16rem;">
+    <div class="card-body">
+    <h5 class="card-title">${producto.nombre}</h5>
+    <p class="card-text">Precio: ${producto.precio}</p>
+    <p class="card-text">Stock: ${producto.stock}</p>
+    <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+    </div>
+    </div>
+    
+    `
+      contenedorProductos.appendChild(div)
+
+      const boton = document.getElementById(`agregar${producto.id}`)
+
+      boton.addEventListener('click', () => {
+          agregarAlCarrito(producto.id)
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'LISTO! Agregado al carrito.',
+            showConfirmButton: true,
+            timer: 700
+          })
+      })
+  })
 };
 
-getGames();
+getGames()
+
+const agregarAlCarrito = (prodId) => {
+  const existe = carrito.some(prod => prod.id === prodId)
+  if (existe) {
+      const prod = carrito.map(prod => {
+          if (prod.id === prodId) {
+              prod.stock++
+          }
+      })
+  } else {
+      const item = juegos.find((prod) => prod.id === prodId)
+      carrito.push(item)
+  }
+  actualizarCarrito()
+};
+
+const eliminarDelCarrito = (prodId) => {
+  const item = carrito.find((prod) => prod.id === prodId)
+  const indice = carrito.indexOf(item)
+  carrito.splice(indice, 1)
+  actualizarCarrito()
+  
+
+}
 
 
-/* lucas */
+const actualizarCarrito = () => {
+
+  contenedorCarrito.innerHTML = ""
+  carrito.forEach((producto) => {
+      const div = document.createElement('div')
+      div.className = ('productoEnCarrito')
+      div.innerHTML =  `
+      <tr>
+          <td>-${producto.nombre} </td>
+          <td> Cantidad : ${producto.stock}</td>
+          <td>Precio : $${producto.precio * producto.stock} ($${producto.precio})</td>
+      </tr>
+      `
+      
+      contenedorCarrito.appendChild(div)
+
+      localStorage.setItem('carrito', JSON.stringify(carrito))
+  })
+
+  contadorCarrito.innerText = carrito.length
+  console.log(carrito)
+  precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.stock * prod.precio, 0)
+
+}
+

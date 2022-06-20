@@ -1,8 +1,0 @@
-
-[
-    {"id": 1, "nombre": "CS GO","precio": 600,"tipo": "Shooter","stock": 10, "imagen": "https://estnn.com/wp-content/uploads/2018/08/Counter-Strike-GO-1200x720.png" },
-    
-    {"id": 2, "nombre": "FIFA","precio": 1500,"tipo": "Deporte","stock": 10, "imagen": "https://image.api.playstation.com/vulcan/img/rnd/202111/0822/zDXM9K2cQiq0vKTDwF0TkAor.png" },
-    
-    {"id": 3, "nombre": "F1 22","precio": 1200,"tipo": "Carrera","stock": 10, "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp2Pt-9FzA2BxyF9eTeAD66B0uLb4puBV5AP8In5wensGjIwMJOUJ8cTFMeV4ufn8H4I&usqp=CAU" }   
-]

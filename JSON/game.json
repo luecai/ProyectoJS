@@ -1,0 +1,6 @@
+[
+    {"id": 1,"nombre": "WWE 2K22","precio": 85,"stock": 100, "imagen": "https://media.vandal.net/m/98843/wwe-2k22-2022241647475_1.jpg"},
+    {"id": 2, "nombre": "GTA 5", "precio": 90, "stock": 100, "imagen": "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/9k922a7212kao3/59a05cd4bc90a814ee52dceb30d70de2c1946953.jpg"},
+    {"id": 3,"nombre": "GRAN TURISMO","precio": 125,"stock": 100, "imagen": "https://image.api.playstation.com/vulcan/ap/rnd/202109/1321/yZ7dpmjtHr1olhutHT57IFRh.png"},
+    {"id": 4,"nombre": "RESIDENT EVIL","precio": 70,"stock": 100, "imagen": "https://i.3djuegos.com/juegos/12858/resident_evil_4_hd_remastered/fotos/ficha/resident_evil_4_hd_remastered-5213109.jpg"}
+]
